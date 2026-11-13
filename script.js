@@ -58,7 +58,7 @@ const portfolioData = {
         {
             titre: "Stage Data & Intelligence Artificielle",
             entreprise: "Haut-Commissariat au Plan (HCP) — Rabat, Maroc",
-            periode: "Juil. – août 2026",
+            periode: "Juin – juil. 2026",
             description: [
                 "Conception d'un RAG hybride pour interroger des PDF et des données statistiques, avec réponses sourcées",
                 "Développement d'une API FastAPI : BGE-M3, Qdrant, PostgreSQL/SQLAlchemy, reranking, Ollama/Qwen3 8B (FR/AR)",
