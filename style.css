@@ -1,0 +1,876 @@
+/* ===== STYLES FUTURISTES - Portfolio Othman El Ghidani ===== */
+
+/* Variables et couleurs */
+:root {
+  --primary-cyan: #00f3ff;
+  --primary-cyan-dark: #00a8b5;
+  --secondary-gold: #ffd700;
+  --secondary-gold-dark: #b39700;
+  --background-dark: #0a0a0f;
+  --background-card: rgba(15, 23, 42, 0.8);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-purple: #a855f7;
+  --accent-green: #10b981;
+  --glow-cyan: 0 0 15px rgba(0, 243, 255, 0.5);
+  --glow-gold: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.font-exo {
+  font-family: 'Exo 2', sans-serif;
+}
+
+/* Fonts spéciales */
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Effets de texte */
+.text-gold {
+  color: var(--secondary-gold);
+}
+
+/* Animations de base */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-cyan {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: var(--glow-cyan); }
+  50% { box-shadow: 0 0 25px rgba(0, 243, 255, 0.8); }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scroll {
+  0% { top: 8px; opacity: 1; }
+  100% { top: 30px; opacity: 0; }
+}
+
+@keyframes progress-glow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Effets de particules */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Navigation Futuriste */
+.nav-link-futurist {
+  position: relative;
+  padding: 8px 16px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.nav-link-futurist:hover {
+  color: var(--primary-cyan);
+  transform: translateY(-2px);
+}
+
+.nav-link-futurist.active {
+  color: var(--primary-cyan);
+  background: rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+}
+
+.nav-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-link-futurist:hover .nav-glow {
+  left: 100%;
+}
+
+/* Boutons Futuristes */
+.btn-futurist-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(0, 168, 181, 0.2));
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  color: var(--primary-cyan);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.btn-futurist-primary:hover {
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(0, 168, 181, 0.3));
+  border-color: var(--primary-cyan);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-cyan);
+  color: white;
+}
+
+.btn-futurist-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(179, 151, 0, 0.2));
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: var(--secondary-gold);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.btn-futurist-secondary:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(179, 151, 0, 0.3));
+  border-color: var(--secondary-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-gold);
+  color: white;
+}
+
+.btn-futurist-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: transparent;
+  border: 2px solid rgba(0, 243, 255, 0.3);
+  color: var(--primary-cyan);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-futurist-outline:hover {
+  background: rgba(0, 243, 255, 0.1);
+  border-color: var(--primary-cyan);
+  transform: translateY(-2px);
+}
+
+.btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-futurist-primary:hover .btn-glow,
+.btn-futurist-secondary:hover .btn-glow {
+  left: 100%;
+}
+
+/* Cartes Futuristes */
+.card-futurist {
+  background: var(--background-card);
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-futurist::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.05), transparent);
+  z-index: -1;
+}
+
+.card-futurist:hover {
+  border-color: rgba(0, 243, 255, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Section Titles */
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Avatar/Photo */
+.avatar-container {
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+
+.avatar-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, var(--primary-cyan), var(--secondary-gold), var(--primary-cyan));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(20px);
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent);
+  animation: scan 3s linear infinite;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+/* Points lumineux */
+.pulse-cyan {
+  animation: pulse-cyan 2s infinite;
+  box-shadow: 0 0 10px var(--primary-cyan);
+}
+
+.pulse-gold {
+  animation: pulse-gold 2s infinite;
+  box-shadow: 0 0 10px var(--secondary-gold);
+}
+
+/* Typewriter effect */
+.typewriter-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 3s steps(30) 1s 1 normal both;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  color: var(--primary-cyan);
+}
+
+/* Indicateur de défilement */
+.scroll-indicator {
+  width: 30px;
+  height: 50px;
+  border: 2px solid rgba(0, 243, 255, 0.5);
+  border-radius: 15px;
+  position: relative;
+}
+
+.scroll-line {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 10px;
+  background: var(--primary-cyan);
+  border-radius: 2px;
+  animation: scroll 2s infinite;
+}
+
+/* Cartes d'intérêts */
+.interest-card {
+  text-align: center;
+  padding: 20px;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.interest-card:hover {
+  border-color: var(--primary-cyan);
+  transform: translateY(-5px);
+  background: rgba(30, 41, 59, 0.8);
+}
+
+.interest-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(255, 215, 0, 0.1));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--primary-cyan);
+  transition: all 0.3s ease;
+}
+
+.interest-card:hover .interest-icon {
+  transform: scale(1.1);
+  color: var(--secondary-gold);
+}
+
+/* Chips de contact */
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  background: rgba(30, 41, 59, 0.7);
+  border-radius: 25px;
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-chip:hover {
+  background: rgba(0, 243, 255, 0.1);
+  color: var(--primary-cyan);
+  border-color: var(--primary-cyan);
+  transform: translateY(-2px);
+}
+
+.contact-chip i {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+/* Barres de progression */
+.progress-bar {
+  position: relative;
+  transition: width 1.5s ease-in-out;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progress-glow 2s infinite;
+}
+
+/* Fond en grille */
+.bg-grid {
+  background-image: 
+    linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-project-grid {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Items de contact */
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  border-color: var(--primary-cyan);
+  background: rgba(30, 41, 59, 0.8);
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(255, 215, 0, 0.1));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--primary-cyan);
+}
+
+/* Icônes sociales */
+.social-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.social-icon:hover::before {
+  left: 100%;
+}
+
+.social-icon.linkedin { background: #0077b5; }
+.social-icon.github { background: #333; }
+.social-icon.twitter { background: #1da1f2; }
+.social-icon.instagram { 
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* Inputs futuristes */
+.input-futurist {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: 'Exo 2', sans-serif;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-futurist:focus {
+  outline: none;
+  border-color: var(--primary-cyan);
+  background: rgba(30, 41, 59, 0.9);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+.input-futurist::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Footer links */
+.footer-link {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-cyan);
+  border-color: var(--primary-cyan);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Bouton retour en haut */
+.back-to-top-futurist {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background: rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  border-radius: 50%;
+  color: var(--primary-cyan);
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-to-top-futurist:hover {
+  background: rgba(0, 243, 255, 0.2);
+  border-color: var(--primary-cyan);
+  transform: translateY(-5px);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Modals Futuristes */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+}
+
+.modal-futurist {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background: var(--background-card);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  border-radius: 20px;
+  z-index: 2001;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  padding: 20px 30px;
+  background: linear-gradient(90deg, rgba(0, 243, 255, 0.1), rgba(255, 215, 0, 0.1));
+  border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+.modal-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--primary-cyan);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  color: var(--secondary-gold);
+  transform: rotate(90deg);
+}
+
+.modal-content {
+  padding: 30px;
+}
+
+/* Timeline Expériences */
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--primary-cyan);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 243, 255, 0.3);
+  border-radius: 50%;
+  animation: pulse-cyan 2s infinite;
+}
+
+/* Compteurs animés */
+.counter {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Skill icon */
+.skill-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 243, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .btn-futurist-primary,
+  .btn-futurist-secondary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .card-futurist {
+    padding: 20px;
+  }
+  
+  .avatar-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .timeline-dot {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .nav-link-futurist {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  
+  .avatar-container {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Dark mode transitions */
+.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+}
+
+.light-mode {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--primary-cyan), var(--secondary-gold));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--primary-cyan-dark), var(--secondary-gold-dark));
+}
+
+/* Fallback pour l'image */
+.fallback-avatar {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-cyan);
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Animation pour l'image de profil */
+#profile-image {
+  transition: transform 0.5s ease;
+}
+
+#profile-image:hover {
+  transform: scale(1.05);
+}
+
+/* Cacher les éléments par défaut */
+.hidden {
+  display: none !important;
+}
+/* Desktop menu uses "hidden md:flex": keep it visible on md+ screens */
+@media (min-width: 768px) {
+  .hidden.md\:flex { display: flex !important; }
+}
+/* Public read-only mode: hide editing controls */
+#add-skill-btn, #add-experience-btn, #add-project-btn, #add-formation-btn, #add-certificate-btn,
+button[onclick^="edit"], button[onclick^="delete"] { display: none !important; }
+
+/* ===== Light theme ===== */
+body, .card-futurist, .interest-card, .contact-chip, .contact-item, .input-futurist, nav {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.light-mode {
+  --background-card: rgba(255, 255, 255, 0.9);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
+/* Text colors */
+.light-mode .text-white:not(.bg-cyan-500):not(.bg-cyan-600) { color: #0f172a !important; }
+.light-mode .text-gray-200,
+.light-mode .text-gray-300 { color: #334155 !important; }
+.light-mode .text-gray-400,
+.light-mode .text-gray-500 { color: #475569 !important; }
+.light-mode .text-cyan-300,
+.light-mode .text-cyan-400 { color: #0e7490 !important; }
+.light-mode .text-gold { color: #b45309 !important; }
+.light-mode .text-cyan-400\/30 { color: rgba(14, 116, 144, 0.3) !important; }
+
+/* Backgrounds */
+.light-mode nav { background-color: rgba(255, 255, 255, 0.85) !important; }
+.light-mode #mobile-menu { background-color: rgba(255, 255, 255, 0.97) !important; }
+.light-mode footer, .light-mode .bg-black\/90 { background-color: #e2e8f0 !important; }
+.light-mode .bg-gray-900 { background-color: #f1f5f9 !important; }
+.light-mode .bg-gray-800 { background-color: #e2e8f0 !important; }
+.light-mode .bg-gray-800\/50 { background-color: rgba(226, 232, 240, 0.8) !important; }
+.light-mode .bg-gray-700, .light-mode .hover\:bg-gray-700:hover { background-color: #cbd5e1 !important; }
+.light-mode .bg-cyan-900\/30 { background-color: rgba(8, 145, 178, 0.1) !important; }
+.light-mode .from-cyan-900\/20 { --tw-gradient-from: rgba(8, 145, 178, 0.12) !important; }
+.light-mode .to-gray-900 { --tw-gradient-to: #e2e8f0 !important; }
+
+/* Borders */
+.light-mode .border-gray-800,
+.light-mode .border-gray-700 { border-color: #cbd5e1 !important; }
+
+/* Components */
+.light-mode .card-futurist {
+  background: #ffffff;
+  border-color: rgba(8, 145, 178, 0.2);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+.light-mode .card-futurist:hover { box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12); }
+.light-mode .interest-card,
+.light-mode .contact-item,
+.light-mode .contact-chip { background: #ffffff; border-color: rgba(8, 145, 178, 0.2); color: #334155; }
+.light-mode .contact-item:hover { background: #f8fafc; }
+.light-mode .input-futurist { background: #ffffff; color: #0f172a; border-color: #cbd5e1; }
+.light-mode .input-futurist:focus { background: #ffffff; }
+.light-mode .nav-link-futurist { color: #334155; }
+.light-mode .social-icon { color: #0f172a; background: #e2e8f0; }
+.light-mode .footer-link { color: #334155; }
+.light-mode .section-title { color: #0f172a; }
+.light-mode .back-to-top-futurist { background: rgba(8, 145, 178, 0.12); color: #0e7490; }
+.light-mode #particles-js { opacity: 0.6; }
+
+/* Anchor offset for the fixed navbar */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 80px; }
+
+/* Navbar background when scrolled */
+nav.nav-scrolled { background-color: rgba(10, 10, 15, 0.95) !important; backdrop-filter: blur(20px); }
+.light-mode nav.nav-scrolled { background-color: rgba(255, 255, 255, 0.95) !important; }
+
+/* Light theme: buttons and accents with readable contrast */
+.light-mode .btn-futurist-primary { color: #0e7490; border-color: rgba(8, 145, 178, 0.5); background: rgba(8, 145, 178, 0.08); }
+.light-mode .btn-futurist-primary:hover { color: #ffffff; background: #0e7490; }
+.light-mode .btn-futurist-secondary { color: #b45309; border-color: rgba(180, 83, 9, 0.5); background: rgba(245, 158, 11, 0.08); }
+.light-mode .btn-futurist-secondary:hover { color: #ffffff; background: #b45309; }
+.light-mode .btn-futurist-outline { color: #0e7490; border-color: rgba(8, 145, 178, 0.5); }
+.light-mode .cursor, .light-mode .typewriter-text { color: #0e7490; }
+.light-mode .scroll-indicator { border-color: rgba(8, 145, 178, 0.5); }
+.light-mode .scroll-line { background: #0e7490; }
+.light-mode .bg-green-900\/50 { background-color: #dcfce7 !important; }
+.light-mode .text-green-400 { color: #15803d !important; }
+
+/* Prevent horizontal scroll from slide-in animations on small screens */
+html, body { overflow-x: hidden; }
+.nav-link-futurist { white-space: nowrap; }
